@@ -8,7 +8,7 @@ export default async function updateCoworkingspace(token: string, coworkingspace
     // await new Promise((resolve) => setTimeout(resolve,5000))
 
     const response = await fetch(`http://localhost:5000/api/v1/coworkingspaces/${coworkingspaceId}`,{
-        method: "POST",
+        method: "PUT",
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json', // You can adjust this header based on your API requirements
@@ -23,7 +23,6 @@ export default async function updateCoworkingspace(token: string, coworkingspace
             "picture": picture
         })
     })
-    console.log(requestBody)
     console.log(response)
     if(!response.ok){
         throw new Error("Failed to fetch coworkingspaces")

@@ -3,6 +3,7 @@ import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import updateCoworkingspace from '@/libs/updateCoworkingspace'
+import { redirect } from 'next/dist/server/api-utils'
 
 export default function EditModal({name
     ,operatingHours,address,province,postalcode,tel, picture,sid,token,open,setOpen}:{name:string, operatingHours:string,address:string,province:string,postalcode:string,tel:string, picture:string,sid:string,token:string,open:boolean,setOpen:React.Dispatch<React.SetStateAction<boolean>>}) {
@@ -26,7 +27,7 @@ export default function EditModal({name
             Postalcode,
             Tel,
             Picture)
-        setOpen
+        setOpen(!open)
     }
     
   return (
