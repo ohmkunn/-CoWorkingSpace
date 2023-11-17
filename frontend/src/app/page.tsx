@@ -9,7 +9,11 @@ export default function Home() {
     <main>
       {/* <Banner/>
       <PromoteCard></PromoteCard> */}
-      <Panel />
+      
+      <div className=''>
+        <Panel />
+      </div>
+      
         {/* <AddHospitalForm/>   */}
         
     </main>

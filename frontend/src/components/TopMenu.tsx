@@ -4,7 +4,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
  export default async function TopMenu () {
     const session = await getServerSession(authOptions)
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+        <nav className="flex items-center justify-between flex-wrap bg-blue-950 p-2">
   <div className="flex items-center flex-shrink-0 text-white mr-6">
   <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,31 +66,31 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
     <span className="font-semibold text-xl tracking-tight">CoWorkingSpace</span>
   </div>
   <div className="block lg:hidden">
-    <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+    {/* <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
       <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-    </button>
+    </button> */}
   </div>
-  <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    <div className="text-sm lg:flex-grow">
-      <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+  <div className="flex-grow flex items-center w-auto ">
+    <div className="text-sm flex-grow">
+      <a href="#responsive-header" className=" inline-block mt-0 text-teal-200 hover:text-white mr-4">
         My Reservation
       </a>
-      <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+      <a href="#responsive-header" className=" inline-block mt-0 text-teal-200 hover:text-white mr-4">
         
       </a>
-      <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+      <a href="#responsive-header" className=" inline-block mt-0 text-teal-200 hover:text-white">
         
       </a>
     </div>
     <div>
     {
                 session? <Link href="/api/auth/signout" className="text-sm ">
-                            <div className="inline-block text-sm px-4 py-2 leading-none border rounded font-bold text-teal-800 bg-white border-white hover:border-transparent hover:text-white hover:bg-teal-900 mt-4 lg:mt-0">
+                            <div className="inline-block text-sm px-4 py-2 leading-none border rounded font-bold text-teal-800 bg-white border-white hover:border-transparent hover:text-white hover:bg-teal-900 mt-0">
                                 Sign-Out of {session.user?.name}
                             </div>
                         </Link>
                         :<Link href="/api/auth/signin" className="text-sm ">
-                            <div className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                            <div className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-0">
                                 Sign-In
                             </div>
                         </Link>

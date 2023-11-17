@@ -12,7 +12,7 @@ export default async function userRegister(userName:string, userEmail:string, us
             password: userPassword,
         }),
     })
-    
+    console.log(response)
     if(!response.ok) {
         throw new Error("Failed to register")
     }
