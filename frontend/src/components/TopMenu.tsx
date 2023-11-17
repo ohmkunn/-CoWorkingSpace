@@ -1,9 +1,13 @@
 import Link from "next/link";
 import {getServerSession} from 'next-auth'
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
- export default async function TopMenu () {
+import getUserProfile from "@/libs/getUserProfile";
+ 
+export default async function TopMenu () {
     const session = await getServerSession(authOptions)
-    return (
+    var profile
+    if(session && session.user.token) profile = await getUserProfile(session.user.token)
+      return (
         <nav className="flex items-center justify-between flex-wrap bg-blue-950 p-2">
   <div className="flex items-center flex-shrink-0 text-white mr-6">
   <svg
@@ -72,9 +76,15 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
   </div>
   <div className="flex-grow flex items-center w-auto ">
     <div className="text-sm flex-grow">
-      <a href="#responsive-header" className=" inline-block mt-0 text-teal-200 hover:text-white mr-4">
+      <a href="/addcoworkingspace" className=" inline-block mt-0 text-teal-200 hover:text-white mr-4">
         My Reservation
       </a>
+      {
+        (profile && profile.data.role=="admin")?<a href="/addcoworkingspace" className=" inline-block mt-0 text-teal-200 hover:text-white mr-4">
+        Add Co-working Space
+        </a>:null
+      }
+
       <a href="#responsive-header" className=" inline-block mt-0 text-teal-200 hover:text-white mr-4">
         
       </a>
