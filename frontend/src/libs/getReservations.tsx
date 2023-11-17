@@ -13,6 +13,6 @@ export default async function getReservations(token: string) {
     })
     if(!response.ok){
         throw new Error("Failed to fetch coworkingspaces")
-    } 
+    }
     return await response.json()
 }
