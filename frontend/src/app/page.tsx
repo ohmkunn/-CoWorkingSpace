@@ -7,11 +7,7 @@ import PromoteCard from '@/components/PromoteCard'
 export default function Home() {
   return (
     <main>
-      {/* <Banner/>
-      <PromoteCard></PromoteCard> */}
       <Panel />
-        {/* <AddHospitalForm/>   */}
-        
     </main>
   )
 }

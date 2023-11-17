@@ -9,10 +9,7 @@ export default function ReservationModal({sid,token,open,setOpen}:{sid:string,to
     const cancelButtonRef = useRef(null)
     const [bookingDate,setBookingDate] = useState("")
     const [numOfRooms,setNumOfRooms] = useState(0)
-    const [user,setUser] = useState("")
-    const [coworkingspace,setCoworkingspace] = useState("")
     const reserve = () => {
-        console.log(sid)
         addReservation(token, sid, new Date(bookingDate) , numOfRooms)
         setOpen
     }
@@ -46,16 +43,16 @@ export default function ReservationModal({sid,token,open,setOpen}:{sid:string,to
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                      <ExclamationTriangleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
+                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+                      <ExclamationTriangleIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
                     </div>
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                      <Dialog.Title as="h3" className="text-xl font-bold leading-6 text-gray-900">
+                      <Dialog.Title as="h3" className="mt-3 text-xl font-bold leading-6 text-gray-900">
                         Please fill in the reservation details
                       </Dialog.Title>
                       <div className="mt-4">
                         {/* form */}
-                        <label className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Owner Name</label>
+                        <label className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Room</label>
                         <input className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" 
                             placeholder="0" 
                             required
