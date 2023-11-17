@@ -15,16 +15,16 @@ export default async function AddCoWorkingSpaceForm() {
   
     const profile = await getUserProfile(session.user.token)
 
-    const addCowrkingspace = async (AddCoWorkingSpaceForm:FormData) => {
+    const addCoworkingspace = async (AddCoWorkingSpaceForm:FormData) => {
         "use server"
 
-        const name = addHospitalForm.get("name");
-        const address = addHospitalForm.get("address");
-        const operatinghours = addHospitalForm.get("operatinghours");
-        const province = addHospitalForm.get("province");
-        const postalcode = addHospitalForm.get("postalcode");
-        const tel = addHospitalForm.get("tel");
-        const picture = addHospitalForm.get("picture");
+        const name = AddCoWorkingSpaceForm.get("name");
+        const address = AddCoWorkingSpaceForm.get("address");
+        const operatinghours = AddCoWorkingSpaceForm.get("operatinghours");
+        const province = AddCoWorkingSpaceForm.get("province");
+        const postalcode = AddCoWorkingSpaceForm.get("postalcode");
+        const tel = AddCoWorkingSpaceForm.get("tel");
+        const picture = AddCoWorkingSpaceForm.get("picture");
 
         try {
             await dbConnect()
@@ -47,27 +47,27 @@ export default async function AddCoWorkingSpaceForm() {
         <div className='bg-slate-100 m-5 p-5'>
                 {
                     (profile.data.role=="admin")?
-                    <form action={addHospital}>
-    <div className="text-x1 text-blue-700">Add Hospital</div>
+                    <form action={addCoworkingspace}>
+    <div className="text-x1 text-blue-700">Add Co-working Space</div>
     <div className="my-4">
         <label className="block text-gray-700" htmlFor="name">
-            ชื่อโรงพยาบาล (name)
+            ชื่อสถานที่ (name)
         </label>
-        <input type="text" required id="name" name="name" placeholder="ชื่อโรงพยาบาล"
+        <input type="text" required id="name" name="name" placeholder="ชื่อสถานที่"
             className="block w-3/6  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
     </div>
     <div className="my-4">
         <label className="block text-gray-700" htmlFor="address">
-            ที่อยู่ ถนน (address)
+            ที่อยู่ (address)
         </label>
-        <input type="text" required id="address" name="address" placeholder="ที่อยู่ ถนน"
+        <input type="text" required id="address" name="address" placeholder="ที่อยู่"
             className="block w-3/6  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
     </div>
     <div className="my-4">
-        <label className="block text-gray-700" htmlFor="district">
-            เขต/อำเภอ (district)
+        <label className="block text-gray-700" htmlFor="operatinghours">
+            เวลาเปิดทำการ (operatinghours)
         </label>
-        <input type="text" required id="district" name="district" placeholder="เขต/อำเภอ"
+        <input type="text" required id="operatinghours" name="operatinghours" placeholder="เวลาเปิดทำการ"
             className="block w-3/6  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
     </div>
     <div className="my-4">
@@ -99,7 +99,7 @@ export default async function AddCoWorkingSpaceForm() {
             className="block w-3/6  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
     </div>
     <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white p-2 rounded'>
-        Add New Hospital
+        Add New Co-working Space
     </button>
     </form>
 

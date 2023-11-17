@@ -76,7 +76,7 @@ export default async function TopMenu () {
   </div>
   <div className="flex-grow flex items-center w-auto ">
     <div className="text-sm flex-grow">
-      <a href="/addcoworkingspace" className=" inline-block mt-0 text-teal-200 hover:text-white mr-4">
+      <a href="#responsive-header" className=" inline-block mt-0 text-teal-200 hover:text-white mr-4">
         My Reservation
       </a>
       {
