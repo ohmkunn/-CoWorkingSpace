@@ -25,7 +25,7 @@ export default async function updateCoworkingspace(token: string, coworkingspace
     })
     console.log(response)
     if(!response.ok){
-        throw new Error("Failed to fetch coworkingspaces")
+        throw new Error("Failed to update coworkingspace")
     } 
     return await response.json()
 }
