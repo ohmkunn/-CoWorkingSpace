@@ -1,16 +1,17 @@
 'use client'
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import deleteCoworkingspace from '@/libs/deleteCoworkingspace'
 
-export default function DeleteModal({sid,token,open,setOpen}:{sid:string,token:string,open:boolean,setOpen:React.Dispatch<React.SetStateAction<boolean>>}) {
+export default function DeleteModal({reload,sid,token,open,setOpen}:{reload:Function,sid:string,token:string,open:boolean,setOpen:React.Dispatch<React.SetStateAction<boolean>>}) {
 
     const cancelButtonRef = useRef(null)
-    const deletePlace = () => {
+    async function deletePlace() {
         console.log(sid)
-        deleteCoworkingspace(token,sid)
-        setOpen
+        await deleteCoworkingspace(token,sid)
+        setOpen(!open)
+        reload();
     }
     
   return (
@@ -63,7 +64,7 @@ export default function DeleteModal({sid,token,open,setOpen}:{sid:string,token:s
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-900 sm:ml-3 sm:w-auto"
-                    onClick={() => deletePlace()}
+                    onClick={() => {deletePlace();}}
                   >
                     Delete
                   </button>

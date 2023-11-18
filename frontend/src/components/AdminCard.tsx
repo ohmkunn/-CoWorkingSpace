@@ -2,15 +2,14 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import ReservationModal from './Modal/ReservationModal';
-import getUserProfile from '@/libs/getUserProfile';
 import EditModal from './Modal/EditModal';
 import DeleteModal from './Modal/DeleteModal';
 
 export default function AdminCard(
     { name
-        ,operatingHours,address,province,postalcode,tel, picture,token,sid
+        ,operatingHours,address,province,postalcode,tel, picture,token,sid,reload
     }: { name:string, token:string, sid:string
-        ,operatingHours:string,address:string,province:string,postalcode:string,tel:string, picture:string
+        ,operatingHours:string,address:string,province:string,postalcode:string,tel:string, picture:string, reload:Function
       }
     ) {
         const [open, setOpen] = useState(false)
@@ -27,9 +26,9 @@ export default function AdminCard(
         picture={picture}
         province={province}
         tel={tel}
-        sid={sid}token={token} open={openEdit} setOpen={setOpenEdit}/>
-        <DeleteModal sid={sid}token={token} open={openDelete} setOpen={setOpenDelete}/>
-        <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 w-96">
+        sid={sid}token={token} open={openEdit} setOpen={setOpenEdit} reload={reload}/>
+        <DeleteModal reload={reload} sid={sid}token={token} open={openDelete} setOpen={setOpenDelete}/>
+        <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 w-auto">
       <div className="p-1 bg-sky-200">
       </div>
       <div className="pt-8 pb-2 px-8">

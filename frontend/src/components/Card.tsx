@@ -15,7 +15,7 @@ export default function Card(
     return (
         <>
         <ReservationModal sid={sid}token={token} open={open} setOpen={setOpen}/>
-        <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 w-80">
+        <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 w-auto">
       <div className="p-1 bg-sky-200">
       </div>
       <div className="pt-8 pb-2 px-8">

@@ -14,7 +14,7 @@ export default async function getReservations(token: string, coworkingspaceId?: 
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json', // You can adjust this header based on your API requirements
           },
-        body: JSON.stringify(requestBody)
+        // body: JSON.stringify(requestBody)
     })
     if(!response.ok){
         throw new Error("Failed to fetch reservations")

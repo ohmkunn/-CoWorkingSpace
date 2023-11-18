@@ -8,10 +8,17 @@ export default function ReservationModal({sid,token,open,setOpen}:{sid:string,to
 
     const cancelButtonRef = useRef(null)
     const [bookingDate,setBookingDate] = useState("")
-    const [numOfRooms,setNumOfRooms] = useState(0)
+    const [numOfRooms,setNumOfRooms] = useState(1)
+    const handleNumOfRoomsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.valueAsNumber;
+  
+      if (value >= 1 && value <= 3) {
+        setNumOfRooms(value);
+      }
+    };
     const reserve = () => {
         addReservation(token, sid, new Date(bookingDate) , numOfRooms)
-        setOpen
+        setOpen(!open)
     }
     
   return (
@@ -56,8 +63,9 @@ export default function ReservationModal({sid,token,open,setOpen}:{sid:string,to
                         <input className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" 
                             placeholder="0" 
                             required
-                            onChange={(e) => setNumOfRooms(e.target.valueAsNumber)}
+                            onChange={(e) => handleNumOfRoomsChange(e)}
                             type="number"
+                            value={numOfRooms}
                             />
                         <label className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Booking Date</label>
                         <div className="relative mb-5 mt-2">

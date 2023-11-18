@@ -3,9 +3,7 @@ import getUserProfile from '@/libs/getUserProfile';
 import { getServerSession } from 'next-auth';
 import React from 'react'
 import { dbConnect } from "@/db/dbConnect"
-import Hospital from '@/db/models/Hospital';
 import Coworkingspace from '@/db/models/Coworkingspace';
-import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 export default async function AddCoWorkingSpaceForm() {
@@ -53,7 +51,7 @@ export default async function AddCoWorkingSpaceForm() {
         <label className="block text-gray-700" htmlFor="name">
             ชื่อสถานที่ (name)
         </label>
-        <input type="text" required id="name" name="name" placeholder="ชื่อสถานที่"
+        <input type="text" required id="name" name="name" placeholder="ชื่อสถานที่" 
             className="block w-3/6  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
     </div>
     <div className="my-4">

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default async function updateReservation(token: string, reservationId: string, bookingDate: Date, numOfRooms: Number, createAt: Date) {
+export default async function updateReservation(token: string, reservationId: string, bookingDate: Date, numOfRooms: Number) {
 
 //add timeout for loading delay testing
     // await new Promise((resolve) => setTimeout(resolve,5000))
@@ -14,9 +14,10 @@ export default async function updateReservation(token: string, reservationId: st
         body: JSON.stringify({
             "bookingDate": bookingDate,
             "numOfRooms": numOfRooms,
-            "createAt": createAt,
+            "createAt": Date.now,
         })
     })
+    console.log(response)
     if(!response.ok){
         throw new Error("Failed to update reservation")
     } 

@@ -1,13 +1,13 @@
-import Banner from '@/components/Banner'
-import Card from '@/components/Card'
-import styles from './page.module.css'
 import Panel from '@/components/Panel'
-import PromoteCard from '@/components/PromoteCard'
+import { authOptions } from './api/auth/[...nextauth]/route'
+import { getServerSession } from 'next-auth'
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions)
+  
   return (
     <main>
-      <Panel />
+      <Panel session={session}/>
     </main>
   )
 }
