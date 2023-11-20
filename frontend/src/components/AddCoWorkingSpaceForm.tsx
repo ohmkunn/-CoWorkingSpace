@@ -91,9 +91,9 @@ export default async function AddCoWorkingSpaceForm() {
     </div>
     <div className="my-4">
         <label className="block text-gray-700" htmlFor="picture">
-            URL รูปภาพโรงพยาบาล (picture)
+            URL รูปภาพสถานที่ (picture)
         </label>
-        <input type="url" required id="picture" name="picture" placeholder="URL รูปภาพโรงพยาบาล"
+        <input type="url" required id="picture" name="picture" placeholder="URL รูปภาพสถานที่"
             className="block w-3/6  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
     </div>
     <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white p-2 rounded'>
