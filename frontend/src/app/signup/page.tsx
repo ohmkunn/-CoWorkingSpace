@@ -1,8 +1,11 @@
 'use client'
 import userRegister from '@/libs/userRegister'
+import Link from 'next/link'
+import { useRouter } from "next/navigation"
 import React, { useState } from 'react'
 
 export default function page() {
+    const router = useRouter()
     const [userName, setUserName] = useState("")
     const [userEmail, setUserEmail] = useState("")
     const [userTel, setUserTel] = useState("")
@@ -37,12 +40,12 @@ export default function page() {
                         onChange={(data)=>setUserPassword(data.target.value)}
                         placeholder="Password" />
 
+                    
                     <button
-                        onClick={()=>{console.log(userName,userEmail,userTel,"user",userPassword) ; userRegister(userName,userEmail,userTel,"user",userPassword)}}
+                        onClick={()=>{ userRegister(userName,userEmail,userTel,"user",userPassword), router.push('/api/auth/signin')}}
                         type="submit"
                         className="w-full text-center py-3 rounded bg-green-600 text-white hover:bg-green-900 focus:outline-none my-1"
                     >Create Account</button>
-
                 </div>
 
                 <div className="text-grey-dark mt-6">

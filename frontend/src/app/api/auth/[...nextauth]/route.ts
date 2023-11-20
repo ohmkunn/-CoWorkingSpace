@@ -2,7 +2,6 @@ import NextAuth from "next-auth";
 import {AuthOptions} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import userLogIn from "../../../../libs/userLogIn"
-import async from '../../../(hospitalinfo)/hospital/[hid]/page';
 
 export const authOptions:AuthOptions = {
     providers: [
@@ -15,7 +14,7 @@ export const authOptions:AuthOptions = {
           // You can pass any HTML attribute to the <input> tag through the object.
           credentials: {
             email: { label: "Email", type: "email", placeholder: "email" },
-            password: { label: "Password", type: "password" }
+            password: { label: "Password", type: "password" , placeholder:"password"}
           },
           async authorize(credentials, req) {
             // Add logic here to look up the user from the credentials supplied
