@@ -47,7 +47,7 @@ export default function page() {
 
                 <div className="text-grey-dark mt-6">
                     Already have an account ?  
-                    <a className="no-underline text-blue-700" href="../login/"> Log in</a>.
+                    <a className="no-underline text-blue-700" href="/api/auth/signin"> Log in</a>.
                 </div>
             </div>
         </div>
