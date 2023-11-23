@@ -42,6 +42,7 @@ export default function Panel({session}:{session:any}) {
                     token={session?.user.token}
                     sid={spaceItem._id}
                     reload={loadData}
+                    location={spaceItem.location}
                 />
             )):null}
                 </div>
@@ -65,7 +66,7 @@ export default function Panel({session}:{session:any}) {
                     key={spaceItem.name}
                     token={session?.user.token}
                     sid={spaceItem._id}
-                    location={spaceItem.location}
+                     />
             )):null}
                 </div>
             </div>

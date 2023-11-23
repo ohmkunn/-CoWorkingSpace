@@ -8,9 +8,9 @@ import Link from 'next/link';
 
 export default function AdminCard(
     { name
-        ,operatingHours,address,province,postalcode,tel, picture,token,sid,reload
+        ,operatingHours,address,province,postalcode,tel, picture,token,sid,reload,location
     }: { name:string, token:string, sid:string
-        ,operatingHours:string,address:string,province:string,postalcode:string,tel:string, picture:string, reload:Function
+        ,operatingHours:string,address:string,province:string,postalcode:string,tel:string, picture:string, reload:Function, location:string
       }
     ) {
         const [open, setOpen] = useState(false)
@@ -26,7 +26,7 @@ export default function AdminCard(
         postalcode={postalcode}
         picture={picture}
         province={province}
-        tel={tel}
+        tel={tel} location={location}
         sid={sid}token={token} open={openEdit} setOpen={setOpenEdit} reload={reload}/>
         <DeleteModal reload={reload} sid={sid}token={token} open={openDelete} setOpen={setOpenDelete}/>
         <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 w-auto">
@@ -44,7 +44,7 @@ export default function AdminCard(
                     fill={true}
                 />
         </div>
-        <Link  className='text-sky-700' href={"/location"}>Location</Link>
+        <Link  className='text-sky-700' href={`/location/${sid}`}>Location</Link>
         
         <p className="text-xl font-bold text-gray-800">Operating Hour</p>
         <p className="text-lg font-medium text-gray-800 mb-6">{operatingHours}</p>

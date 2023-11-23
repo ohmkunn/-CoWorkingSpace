@@ -2,15 +2,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import ReservationModal from './Modal/ReservationModal';
-import getUserProfile from '@/libs/getUserProfile';
-import Location from './Location';
 import Link from 'next/link';
 
 export default function Card(
     { name
-        ,operatingHours,address,province,postalcode,tel, picture,token,sid,location
+        ,operatingHours,address,province,postalcode,tel, picture,token,sid
     }: { name:string, token:string, sid:string
-        ,operatingHours:string,address:string,province:string,postalcode:string,tel:string, picture:string, location:string
+        ,operatingHours:string,address:string,province:string,postalcode:string,tel:string, picture:string
       }
     ) {
         const [open, setOpen] = useState(false)
@@ -32,7 +30,7 @@ export default function Card(
                     fill={true}
                 />
         </div>
-        <Link  className='text-sky-700' href={`/${location}`}>Location</Link>
+        <Link  className='text-sky-700' href={`/${sid}`}>Location</Link>
         
         <p className="text-xl font-bold text-gray-800">Operating Hour</p>
         <p className="text-lg font-medium text-gray-800 mb-6">{operatingHours}</p>

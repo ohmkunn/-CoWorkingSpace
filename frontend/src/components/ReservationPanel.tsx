@@ -88,6 +88,7 @@ export default function ReservationPanel({session}:{session:any}) {
                 <input
                   type="date"
                   required
+                  value={bookingDate}
                   onChange={(e) => setBookingDate(e.target.value)}
                   className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker mb-3"
                 />
@@ -153,14 +154,17 @@ export default function ReservationPanel({session}:{session:any}) {
                 <label className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Room</label>
                 <input
                   type="number"
-                  required
-                  onChange={(e) => setNumOfRooms(e.target.valueAsNumber)}
+                //   value={resItem.numOfRooms}
+                required
+                  onChange={(e) => handleNumOfRoomsChange(e)}
+                  value={numOfRooms}
                   className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker mb-3"
                 />
                 <label className="text-gray-800 text-sm font-bold leading-tight tracking-normal">Date</label>
                 <input
                   type="date"
                   required
+                  value={bookingDate}
                   onChange={(e) => setBookingDate(e.target.value)}
                   className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker mb-3"
                 />
