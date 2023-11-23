@@ -18,6 +18,7 @@ export default async function AddCoWorkingSpaceForm() {
 
         const name = AddCoWorkingSpaceForm.get("name");
         const address = AddCoWorkingSpaceForm.get("address");
+        const location = AddCoWorkingSpaceForm.get("location");
         const operatinghours = AddCoWorkingSpaceForm.get("operatinghours");
         const province = AddCoWorkingSpaceForm.get("province");
         const postalcode = AddCoWorkingSpaceForm.get("postalcode");
@@ -29,7 +30,8 @@ export default async function AddCoWorkingSpaceForm() {
             const coworkingspace = await Coworkingspace.create({
                 name: name,
                 address: address, // Add the address field
-                operatingHours: operatinghours, // Add the district field
+                location: location, // Add the location field
+                operatingHours: operatinghours, // Add the operatinghours field
                 province: province, // Add the province field
                 postalcode: postalcode, // Add the postalcode field
                 tel: tel, // Add the tel field
@@ -59,6 +61,13 @@ export default async function AddCoWorkingSpaceForm() {
             ที่อยู่ (address)
         </label>
         <input type="text" required id="address" name="address" placeholder="ที่อยู่"
+            className="block w-3/6  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
+    </div>
+    <div className="my-4">
+        <label className="block text-gray-700" htmlFor="location">
+            ตำแหน่ง (location)
+        </label>
+        <input type="text" required id="location" name="location" placeholder="ตำแหน่ง"
             className="block w-3/6  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
     </div>
     <div className="my-4">
