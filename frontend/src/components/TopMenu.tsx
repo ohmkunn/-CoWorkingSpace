@@ -97,7 +97,7 @@ export default async function TopMenu () {
     {
                 session? <Link href="/api/auth/signout" className="text-sm ">
                             <div className="inline-block text-sm px-4 py-2 leading-none border rounded font-bold text-teal-800 bg-white border-white hover:border-transparent hover:text-white hover:bg-teal-900 mt-0">
-                                Sign-Out of {session.user?.name}
+                                Sign Out of {session.user?.name}
                             </div>
                         </Link>
                         :

@@ -33,6 +33,7 @@ export default function ReservationPanel({session}:{session:any}) {
         }
     }
     const handleSaveClick = ({reservationId, bookingDate, numOfRooms}:{reservationId: string, bookingDate: string, numOfRooms: Number}) => {
+      // console.log(bookingDate)
       updateReservation(session.user.token, reservationId, new Date(bookingDate), numOfRooms)
       setEditIndex(null);
       Dataloading()

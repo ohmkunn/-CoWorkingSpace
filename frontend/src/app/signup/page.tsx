@@ -10,6 +10,29 @@ export default function page() {
     const [userEmail, setUserEmail] = useState("")
     const [userTel, setUserTel] = useState("")
     const [userPassword, setUserPassword] = useState("")
+    const handleSignupClick = () => {
+        if (userName !== "" && userEmail !== "" && userTel !== "" && userPassword !== "") {
+            userRegister(userName, userEmail, userTel, "user", userPassword)
+            .then(() => {
+            router.push('/api/auth/signin');
+        })
+            .catch((error) => {
+            // Check if the error contains validation messages
+            if (error.response && error.response.data && error.response.data.error && error.response.data.error.message) {
+                const validationErrors = error.response.data.error.message;
+                alert(validationErrors);
+            } else if(userPassword.length < 6){
+                // If it's not a validation error, alert a generic message
+                alert("password must be longer than 5")
+            } else {
+                alert("An error occurred during registration.");
+            }
+        });
+} else {
+    alert("Please fill in all the required fields.");
+}
+      };
+      
   return (
 <div className="bg-grey-lighter min-h-screen flex flex-col">
             <div className="container max-w-xl mx-auto flex-1 flex flex-col items-center justify-center px-2">
@@ -28,7 +51,7 @@ export default function page() {
                         onChange={(data)=>setUserTel(data.target.value)}
                         placeholder="telephone number" />
                     <input 
-                        type="text"
+                        type="email"
                         className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
                         onChange={(data)=>setUserEmail(data.target.value)}
@@ -42,7 +65,7 @@ export default function page() {
 
                     
                     <button
-                        onClick={()=>{ userRegister(userName,userEmail,userTel,"user",userPassword), router.push('/api/auth/signin')}}
+                        onClick={()=>{ handleSignupClick()}}
                         type="submit"
                         className="w-full text-center py-3 rounded bg-green-600 text-white hover:bg-green-900 focus:outline-none my-1"
                     >Create Account</button>

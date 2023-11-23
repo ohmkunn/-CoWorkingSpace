@@ -27,7 +27,8 @@ export default function Panel({session}:{session:any}) {
         return (
         
             <div className="bg-gray-100 min-h-screen py-2 flex items-center justify-center w-full p-0 flex-col">
-                <h1 className='text-5xl font-extrabold text-gray-800 mt-6 mb-16 text-left'>Browsing Your Space.</h1>
+                {session?.user.token != null ? <h1 className='text-5xl font-extrabold text-gray-800 mt-6 mb-16 text-left'>Browsing Your Space.</h1>
+            :<h1 className='text-3xl font-bold text-gray-800 mt-6 mb-16 text-left'>PLease login or create your account first</h1>}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             { (session?.user.token != null && coworkingSpaces != null)?coworkingSpaces.data.map((spaceItem:Object)=>(
                 <AdminCard name={spaceItem.name}
@@ -49,7 +50,9 @@ export default function Panel({session}:{session:any}) {
     }   else { 
         return(
             <div className="bg-gray-100 min-h-screen py-2 flex items-center justify-center w-full p-0 flex-col">
-            <h1 className='text-5xl font-extrabold text-gray-800 mt-6 mb-16 text-left'>Browsing Your Space.</h1>
+            {session?.user.token != null ? <h1 className='text-5xl font-extrabold text-gray-800 mt-6 mb-16 text-left'>Browsing Your Space.</h1>
+            :<h1 className='text-3xl font-bold text-gray-800 mt-6 mb-16 text-left'>PLease login or create your account first</h1>}
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             { (session?.user.token != null && coworkingSpaces != null)?coworkingSpaces.data.map((spaceItem:Object)=>(
                 <Card name={spaceItem.name}
@@ -62,7 +65,7 @@ export default function Panel({session}:{session:any}) {
                     key={spaceItem.name}
                     token={session?.user.token}
                     sid={spaceItem._id}
-                />
+                    location={spaceItem.location}
             )):null}
                 </div>
             </div>

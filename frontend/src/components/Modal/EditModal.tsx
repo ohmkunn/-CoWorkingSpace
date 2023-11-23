@@ -16,7 +16,14 @@ export default function EditModal({name,reload
     const [Tel,setTel] = useState(tel)
     const [Picture,setPicture] = useState(picture)
     const update = () => {
-        updateCoworkingspace(
+      if(Name != "" &&
+        Address != "" &&
+        OperatingHours != "" &&
+        Province != "" &&
+        Postalcode != "" &&
+        Tel != "" &&
+        Picture) {
+          updateCoworkingspace(
             token,
             sid,
             Name,
@@ -28,6 +35,11 @@ export default function EditModal({name,reload
             Picture)
             
         setOpen(!open)
+        } else {
+          alert("please fill all input field")
+          
+        }
+        
     }
     
   return (

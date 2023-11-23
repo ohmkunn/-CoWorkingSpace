@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ReservationModal from './Modal/ReservationModal';
 import EditModal from './Modal/EditModal';
 import DeleteModal from './Modal/DeleteModal';
+import Link from 'next/link';
 
 export default function AdminCard(
     { name
@@ -43,6 +44,7 @@ export default function AdminCard(
                     fill={true}
                 />
         </div>
+        <Link  className='text-sky-700' href={"/location"}>Location</Link>
         
         <p className="text-xl font-bold text-gray-800">Operating Hour</p>
         <p className="text-lg font-medium text-gray-800 mb-6">{operatingHours}</p>
