@@ -16,6 +16,10 @@ const CoworkingspaceSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please add an address"],
     },
+    location: {
+      type: String,
+      required: [true, "Please add a location"],
+    },
     province: {
       type: String,
       required: [true, "Please add a province"],
