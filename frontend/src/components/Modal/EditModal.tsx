@@ -5,12 +5,13 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import updateCoworkingspace from '@/libs/updateCoworkingspace'
 
 export default function EditModal({name,reload
-    ,operatingHours,address,province,postalcode,tel, picture,sid,token,open,setOpen}:{reload:Function ,name:string, operatingHours:string,address:string,province:string,postalcode:string,tel:string, picture:string,sid:string,token:string,open:boolean,setOpen:React.Dispatch<React.SetStateAction<boolean>>}) {
+    ,operatingHours,address,location,province,postalcode,tel, picture,sid,token,open,setOpen}:{reload:Function ,name:string, operatingHours:string,address:string,location:string,province:string,postalcode:string,tel:string, picture:string,sid:string,token:string,open:boolean,setOpen:React.Dispatch<React.SetStateAction<boolean>>}) {
     
     const cancelButtonRef = useRef(null)
     const [Name,setName] = useState(name)
     const [OperatingHours,setOperatingHours] = useState(operatingHours)
     const [Address,setAddress] = useState(address)
+    const [Location,setLocation] = useState(location)
     const [Province,setProvince] = useState(province)
     const [Postalcode,setPostalcode] = useState(postalcode)
     const [Tel,setTel] = useState(tel)
@@ -28,6 +29,7 @@ export default function EditModal({name,reload
             sid,
             Name,
             Address,
+            Location,
             OperatingHours,
             Province,
             Postalcode,
@@ -90,10 +92,18 @@ export default function EditModal({name,reload
                             />
                             <label className="text-gray-800 text-sm font-bold leading-tight tracking-normal">address</label>
                         <input className="my-1 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" 
-                            placeholder="0" 
+                            placeholder="" 
                             required
                             value={Address}
                             onChange={(e) => setAddress(e.target.value)}
+                            type="text"
+                            />
+                            <label className="text-gray-800 text-sm font-bold leading-tight tracking-normal">location</label>
+                        <input className="my-1 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" 
+                            placeholder="" 
+                            required
+                            value={Location}
+                            onChange={(e) => setLocation(e.target.value)}
                             type="text"
                             />
                             <label className="text-gray-800 text-sm font-bold leading-tight tracking-normal">operatingHours</label>

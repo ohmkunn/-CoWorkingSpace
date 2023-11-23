@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default async function updateCoworkingspace(token: string, coworkingspaceId: string, 
-    name: string, address: string, operatingHours: string, province: string, postalcode: string,
+    name: string, address: string, location: string, operatingHours: string, province: string, postalcode: string,
     tel: string, picture: string) {
 
 //add timeout for loading delay testing
@@ -16,6 +16,7 @@ export default async function updateCoworkingspace(token: string, coworkingspace
         body: JSON.stringify({
             "name": name,
             "address": address,
+            "location": location,
             "operatingHours": operatingHours,
             "province": province,
             "postalcode": postalcode,
